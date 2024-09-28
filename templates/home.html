@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/static/home.css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Library Management System</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+        <link rel="icon" type="image/png" href="{% static 'IMAGES/favicon.png' %}">
+      </head>
+
+      <body>
+        <nav class="navbar">
+          <div class="logo">
+            <i class="fa-solid fa-book-open-reader"></i>
+            <a href="#">पुस्तकालय</a>
+          </div>
+          <div class="menu">
+            <div class="menu-links">
+              <a href="{% url 'home_page' %}">Home</a>
+              <a href="{% url 'profile_page' %}">Profile</a>
+              <a href="#">Contact</a>
+              <a href="{% url 'upload_page' %}">Upload</a>
+              <a href="#">My Favourites</a>
+            </div>
+            <i href="{% url 'login_page' %}"><button class="log-in">Log In</button></i>
+          </div>
+          <div class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </nav>
+        <main class="main-content">
+          <!-- Search Section -->
+          <form class="search-section">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              class="search-bar"
+              placeholder="      Search for books, authors, or genres..."
+            />
+            <button class="search" value="search">Search</button>
+          </form>
+
+          <!-- Categories Section -->
+          <section class="categories-section">
+            <div class="dropdown">
+              <button class="dropdown-btn"><i class="fa-solid fa-filter">&nbsp&nbsp</i>Filter</button>
+              <div class="dropdown-content">
+                <label><input type="checkbox" name="category" value="fiction"> Fiction</label>
+                <label><input type="checkbox" name="category" value="non-fiction"> Non-fiction</label>
+                <label><input type="checkbox" name="category" value="mystery"> Mystery</label>
+                <label><input type="checkbox" name="category" value="science-fiction"> Science Fiction</label>
+                <label><input type="checkbox" name="category" value="biographies"> Biographies</label>
+                <label><input type="checkbox" name="category" value="fantasy"> Fantasy</label>
+                <label><input type="checkbox" name="category" value="romance"> Romance</label>
+              </div>
+            </div>
+          </section>          
+
+          <!-- Featured Books Section -->
+          <section class="featured-books">
+            <h2>Popular Books</h2>
+            <div class="books-grid">
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 1</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 2</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 3</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 4</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 5</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 6</h3>
+                <p>by Author Name</p>
+              </div>
+            </div>
+          </section>
+          <br />
+          <section class="featured-books">
+            <h2>Recently Uploaded Books</h2>
+            <div class="books-grid">
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 1</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 2</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 3</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 4</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 5</h3>
+                <p>by Author Name</p>
+              </div>
+
+              <div class="book-card">
+                <img src="https://placehold.co/150x200" alt="Book Cover" />
+                <h3>Book Title 6</h3>
+                <p>by Author Name</p>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer class="footer">
+          <p>&copy; 2023 E-Library. All rights reserved.</p>
+        </footer>
+        <script>
+          // Toggle dropdown content visibility on button click
+          document
+            .querySelector(".dropdown-btn")
+            .addEventListener("click", function () {
+              document.querySelector(".dropdown").classList.toggle("open");
+            });
+
+          // Close dropdown if clicked outside
+          window.addEventListener("click", function (e) {
+            if (!document.querySelector(".dropdown").contains(e.target)) {
+              document.querySelector(".dropdown").classList.remove("open");
+            }
+          });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>

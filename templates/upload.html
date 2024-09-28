@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload a Book - E-Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/static/upload.css">
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fa-solid fa-book-open-reader"></i>
+        <a href="#">पुस्तकालय</a>
+      </div>
+      <div class="menu">
+        <div class="menu-links">
+          <a href="{% url 'home_page' %}">Home</a>
+          <a href="{% url 'profile_page' %}">Profile</a>
+          <a href="#">Contact</a>
+          <a href="{% url 'upload_page' %}">Upload</a>
+          <a href="#">My Favourites</a>
+        </div>
+        <i href="{% url 'login_page' %}"><button class="log-in">Log In</button></i>
+      </div>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Upload Form Section -->
+    <div class="upload-container">
+      <h2>Upload a New Book</h2>
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="title">Book Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Enter the book title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="author">Author Name</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            placeholder="Enter the author's name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+            <option value="science">Science</option>
+            <option value="history">History</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="biography">Biography</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">Book Description</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Write a short description of the book"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="cover">Book Cover (Image)</label>
+          <input
+            type="file"
+            id="cover"
+            name="cover"
+            accept="image/*"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="book-file">Upload Book (PDF)</label>
+          <input
+            type="file"
+            id="book-file"
+            name="book-file"
+            accept=".pdf"
+            required
+          />
+        </div>
+        <input type="submit" value="Upload Book" />
+      </form>
+    </div>
+  </body>
+</html>

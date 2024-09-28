@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(/static/IMAGES/signup-bg1.jpg);
+    font-family: Arial, sans-serif;
+    background-size: cover;
+}
+
+.container {
+    width: 90%; /* Default to 90% for smaller screens */
+    max-width: 450px; /* Limit width on larger screens */
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(244, 255, 34, 0.05);
+    backdrop-filter: blur(36px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(60, 53, 35, 0.25);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #3B3B3B;
+}
+
+.input-wrapper {
+    position: relative;
+    font-size: 20px;
+}
+
+.input-wrapper input {
+    all: unset;
+    width: 100%;
+    height: 50%;
+    padding: 10px 0;
+    border-bottom: 2px solid #dedede;
+    color: #3B3B3B;
+}
+
+.input-wrapper label {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: #363434;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper > input:is(:focus, :valid) ~ label {
+    bottom: 100%;
+    font-size: 14px;
+    color: #3b3b3bc0;
+}
+
+.input-wrapper > .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f3c621;
+    scale: 0 1;
+    transition: 0.3s;
+}
+
+.input-wrapper > input:focus ~ .underline {
+    scale: 1 1;
+}
+
+.container input[type="submit"] {
+    width: 100%;
+    height: 35px;
+    color: white;
+    background: #0da57f;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 25px;
+}
+
+.register-link {
+    text-align: center;
+    color: #bdbdbd;
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: #236ebe;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.register-link p {
+    color: #302A1B;
+    text-decoration: none;
+}
+
+small{ 
+    color: red;
+    font-weight: bold;
+}

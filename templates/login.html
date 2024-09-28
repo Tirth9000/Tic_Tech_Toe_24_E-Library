@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form" method='POST'>
+            {% csrf_token %}
+            <h2>Sign in to our पुस्तकालय</h2>
+            <p>Login here using your username and password</p>
+            {% if user_invalid %}
+                <h4 id="passwordError" class="error-message">
+                    Enter valid Email or Password!
+                </h4>
+            {% endif %}
+            <div class="input-group">
+                <label for="email">Your Email</label>
+                <div class="input-icon">
+                    <span class="icon">📧</span>
+                    <input type="email" id="email" name='email' placeholder="example@company.com" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Your Password</label>
+                <div class="input-icon">
+                    <span class="icon">🔒</span>
+                    <input type="password" id="password" name='password' placeholder="Password" required>
+                </div>
+            </div>
+
+            <div class="remember-forgot">
+                <a href="{% url 'forget_password' %}">Forgot password?</a>
+            </div>
+
+            <input type="submit" value="Sign in" class="btn-submit">
+
+            <p class="register-link">Not registered? <a href="{% url 'register_page' %}">Create account</a></p>
+        </form>
+    </div>
+</body>
+</html>
