@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/update.css">
+    <title>Information Update Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Your Information</h1>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required autocomplete="off" value="{{user.username}}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required autocomplete="off" value="{{user.email}}">
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="phone" required autocomplete="off" value="{{user.phone}}">
+            </div>
+            <div class="form-group profile-pic">
+                <label for="profile-pic">Upload Profile Picture:</label>
+                <input type="file" id="profile-pic" name="profile-pic" accept="image/*" >
+            </div>
+            <button type="submit">Update Information</button>
+        </form>
+    </div>
+</body>
+</html>

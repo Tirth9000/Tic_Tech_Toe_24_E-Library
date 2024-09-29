@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>e-Library Product Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/product.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fa-solid fa-book-open-reader"></i>
+        <a href="{% url 'home_page' %}">पुस्तकालय</a>
+      </div>
+      <div class="menu">
+        <div class="menu-links">
+          <a href="{% url 'home_page' %}">Home</a>
+          <a href="{% url 'profile_page' %}">Profile</a>
+          <a href="{% url 'contact_page' %}">Contact</a>
+          <a href="{% url 'upload_page' %}">Upload</a>
+          <a href="{% url 'favourites_page' %}">My Favourites</a>
+        </div>
+        {% if userlogin is 1 %}
+            <a href="{% url 'logout' %}"><button class="log-in">Log Out</button></a>
+        {% else %}
+            <a href="{% url 'login_page' %}"><button class="log-in">Log In</button></a>
+        {% endif %}
+      </div>
+      <div class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="product-page-container">
+      <!-- Featured Product Section -->
+      <section class="featured-product">
+        <div class="book-image">
+          <img src="{{ book.book_photo.url }}" alt="Book Cover" />
+        </div>
+        <div class="book-details">
+          <h1 class="book-title">{{book.book_title}}</h1>
+          <p class="book-author">by {{book.author}}</p>
+          <p class="book-description"> {{book.bookDescription}}
+          </p>
+          <div class="button-feedback-wrapper">
+            <div class="buttons-section">
+              <button class="buy-now-btn">
+                <i class="fa-solid fa-download"></i>&nbsp;&nbsp;<a href="{% url 'download_book' book.fileID %}">Download Now</a>
+              </button>
+              <button class="add-to-cart-btn">
+                <i class="fa-regular fa-star"></i>&nbsp;&nbsp;<a href="{% url 'add_to_favourite' book.fileID %}">Add to Favourite</a>
+              </button>
+            </div>
+
+            <!-- Feedback Section -->
+            <div class="feedback-section">
+              <h2>Leave Your Feedback</h2>
+              <form class="feedback-form" action="#" method="post">
+                {% csrf_token %}
+                <textarea
+                  id="feedback"
+                  name="feedback"
+                  rows="4"
+                  placeholder="Write your feedback here..."
+                ></textarea>
+                <button type="submit" class="submit-feedback">
+                  Submit Feedback
+                </button>
+              </form>
+            </div>
+
+            <h2>Rate Us :</h2>
+            <!-- Star Rating System -->
+            <div class="star-rating">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5" title="5 stars">
+                <i class="fa fa-star"></i>
+              </label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4" title="4 stars">
+                <i class="fa fa-star"></i>
+              </label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3" title="3 stars">
+                <i class="fa fa-star"></i>
+              </label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2" title="2 stars">
+                <i class="fa fa-star"></i>
+              </label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1" title="1 star">
+                <i class="fa fa-star"></i>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="related-books">
+        <h2>Related Books</h2>
+        <div class="related-books-grid">
+          <a href="">
+            <div class="related-book">
+              <img
+                src="https://via.placeholder.com/150x220"
+                alt="Related Book 1"
+              />
+              <p class="related-title">Clean Code</p>
+              <p class="related-author">by Robert C. Martin</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

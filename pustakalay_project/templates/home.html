@@ -1,0 +1,145 @@
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Library Management System</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="/static/home.css" />
+      </head>
+
+      <body>
+        <!-- Navbar Section -->
+        <nav class="navbar">
+          <div class="logo">
+            <i class="fa-solid fa-book-open-reader"></i>
+            <a href="{% url 'home_page' %}">पुस्तकालय</a>
+          </div>
+          <div class="menu">
+            <div class="menu-links">
+              <a href="{% url 'home_page' %}">Home</a>
+              <a href="{% url 'profile_page' %}">Profile</a>
+              <a href="{% url 'contact_page' %}">Contact</a>
+              <a href="{% url 'upload_page' %}">Upload</a>
+              <a href="{% url 'favourites_page' %}">My Favourites</a>
+              <!-- <a href="#">Upload</a> -->
+            </div>
+            {% if userlogin is 1 %}
+                <a href="{% url 'logout' %}"><button class="log-in">Log Out</button></a>
+            {% else %}
+                <a href="{% url 'login_page' %}"><button class="log-in">Log In</button></a>
+            {% endif %}
+          </div>
+          <div class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </nav>
+        <main class="main-content">
+          <!-- Search Section -->
+          <form class="search-section">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              class="search-bar"
+              placeholder="      Search for books, authors, or genres..."
+            />
+            <button class="search" value="search">Search</button>
+          </form>
+
+          <!-- Categories Section -->
+          <section class="categories-section">
+            <div class="dropdown">
+              <button class="dropdown-btn">
+                <i class="fa-solid fa-filter">&nbsp&nbsp</i>Filter
+              </button>
+              <!--div class="dropdown-content">
+                <label
+                  ><input type="checkbox" name="category" value="Languages" />
+                  Languages</label
+                >
+                <label
+                  ><input type="checkbox" name="category" value="Web-Development" />
+                  Web Development</label
+                >
+                <label
+                  ><input type="checkbox" name="category" value="DBMS" />
+                  DBMS</label
+                >
+                <label
+                  ><input
+                    type="checkbox"
+                    name="category"
+                    value="AI/ML"
+                  />
+                  AI/ML</label
+                >
+                <label
+                  ><input type="checkbox" name="category" value="Cyber Security" />
+                  Cyber Security</label
+                >
+                <label
+                  ><input type="checkbox" name="category" value="IOT" />
+                  IOT</label
+                >
+                <label
+                  ><input type="checkbox" name="category" value="DSA" />
+                  DSA</label
+                >
+                <label
+                  ><input type="checkbox" name="category" value="Others" />
+                  Others</label
+                >
+              </div-->
+              <form action="{% url 'filter' %}" method="GET">
+                <div class="dropdown-content">
+                  <label><input type="checkbox" name="category" value="Languages" onchange="this.form.submit();" /> Languages</label>
+                  <label><input type="checkbox" name="category" value="Web-Development" onchange="this.form.submit();" /> Web Development</label>
+                  <label><input type="checkbox" name="category" value="DBMS" onchange="this.form.submit();" /> DBMS</label>
+                  <label><input type="checkbox" name="category" value="AI/ML" onchange="this.form.submit();" /> AI/ML</label>
+                  <label><input type="checkbox" name="category" value="Cyber Security" onchange="this.form.submit();" /> Cyber Security</label>
+                  <label><input type="checkbox" name="category" value="IOT" onchange="this.form.submit();" /> IOT</label>
+                  <label><input type="checkbox" name="category" value="DSA" onchange="this.form.submit();" /> DSA</label>
+                  <label><input type="checkbox" name="category" value="Others" onchange="this.form.submit();" /> Others</label>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <h2>Popular Books</h2>
+            {% for book in books %}
+            <a href="{% url 'view_book' book.fileID %}"
+            <div class="books-grid">
+              <div class="book-card">
+                <img src="{{book.book_photo.url}}" alt="Book Cover" />
+                <h3>{{book.title}}</h3>
+                <p>by {{book.author}}</p>
+              </div>
+            </a>
+            </div>
+            {% endfor %}
+          </section>
+        </main>
+
+        <footer class="footer">
+          <p>&copy; 2023 E-Library. All rights reserved.</p>
+        </footer>
+        <script>
+          // Toggle dropdown content visibility on button click
+          document
+            .querySelector(".dropdown-btn")
+            .addEventListener("click", function () {
+              document.querySelector(".dropdown").classList.toggle("open");
+            });
+
+          // Close dropdown if clicked outside
+          window.addEventListener("click", function (e) {
+            if (!document.querySelector(".dropdown").contains(e.target)) {
+              document.querySelector(".dropdown").classList.remove("open");
+            }
+          });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>

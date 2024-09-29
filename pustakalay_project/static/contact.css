@@ -1,0 +1,135 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f8fc;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contact Container */
+.contact-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Contact Header */
+.contact-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-header h1 {
+    font-size: 2.5rem;
+    color: #1d4ed8;
+}
+
+.contact-header p {
+    margin-top: 0.5rem;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #374151;
+    background-color: #f9fafb;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #3b82f6;
+}
+
+.submit-btn {
+    background-color: #3b82f6;
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #2563eb;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.info-card {
+    flex: 1;
+    background-color: #f1f5f9;
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    color: #1d4ed8;
+}
+
+.info-card p {
+    margin-top: 0.5rem;
+    color: #374151;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-info-section {
+        flex-direction: column;
+    }
+
+    .contact-form {
+        max-width: 100%;
+    }
+}

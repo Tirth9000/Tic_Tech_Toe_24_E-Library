@@ -1,0 +1,329 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);  overflow-x: hidden;
+    color: #333;
+    /* padding: 20px; */
+}
+
+button {
+    border: 0;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+  }
+  
+  .navbar {
+    height: 90px;
+    background-color: hsl(0, 0%, 10%);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .logo i {
+    color: #0aa5ff;
+    font-size: 22px;
+  }
+  
+  .navbar .logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-left: 12px;
+  }
+  .menu {
+  
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  
+  .menu-links {
+    display: flex;
+    gap: 24px;
+    border-right: 1px solid #999999;
+    padding-inline: 24px;
+  }
+  
+  .menu-links a {
+    font-weight: 500;
+    color: #999999;
+    padding: 8px 16px;
+  }
+  
+  .menu-links a:hover {
+    color: white;
+  }
+  
+  .log-in {
+    font-weight: 500;
+    padding: 12px 22px;
+    background-color: transparent;
+    color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #0aa5ff;
+    transition: 0.2s;
+  }
+  
+  .log-in:hover {
+    background-color: #0aa5ff;
+    color: rgb(0, 0, 0);
+  }
+  
+  .menu-btn {
+    font-size: 32px;
+    color: white;
+    display: none;
+    cursor: pointer;
+  }
+
+  /* Feedback Section */
+/* Wrapper for buttons and feedback to align them horizontally */
+.button-feedback-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between buttons and feedback */
+    flex-wrap: wrap; /* Allows wrapping if screen size is small */
+}
+
+/* Style for the feedback section when it appears next to the buttons */
+.feedback-section {
+    flex: 1;
+}
+
+.feedback-section h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.feedback-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px; /* Adjust width as needed */
+    resize: none;
+    font-size: 0.9rem;
+}
+
+.submit-feedback {
+    padding: 10px 15px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-feedback:hover {
+    background-color: #004494;
+}
+
+/* Style the buttons to keep them aligned */
+.buttons-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .button-feedback-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .feedback-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .feedback-form textarea {
+        width: 100%;
+    }
+}
+
+/* Star Rating System */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    color: #ddd; /* Default color for stars */
+  }
+  
+  .star-rating input[type="radio"] {
+    display: none; /* Hide the actual radio buttons */
+  }
+  
+  .star-rating label {
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .star-rating label:hover,
+  .star-rating label:hover ~ label {
+    color: #ffc107; /* Hover color for stars */
+  }
+  
+  .star-rating input[type="radio"]:checked ~ label {
+    color: #ffc107; /* Selected star color */
+  }
+  
+  .star-rating label i {
+    pointer-events: none; /* Prevent click events on the icon itself */
+  }
+  
+
+/* Main Container */
+.product-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Featured Product Section */
+.featured-product {
+    display: flex;
+    gap: 40px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.featured-product:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.book-image img {
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.book-details {
+    max-width: 500px;
+}
+
+.book-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.book-author {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.book-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.book-price {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 12px 30px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.buy-now-btn {
+    background-color: #ff6600;
+    color: #fff;
+}
+
+.buy-now-btn:hover {
+    background-color: #e65c00;
+}
+
+.add-to-cart-btn {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #004494;
+}
+
+/* Related Books Section */
+.related-books {
+    margin-top: 40px;
+}
+
+.related-books h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.related-books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.related-book {
+    background-color: #fff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.related-book:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.related-book img {
+    width: 150px;
+    height: 220px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.related-title {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.related-author {
+    color: #333;
+    font-size: 14px;
+}
+
