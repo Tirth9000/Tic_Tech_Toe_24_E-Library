@@ -185,7 +185,7 @@ def UpdateUser(request):
     return render(request, 'update.html', {'user': user})
 
 
-# @Authorised_user
+@Authorised_user
 def FavouritesPage(request):
     userid = request.session.get('userid')
     user = LibraryUser.objects.get(userid = userid)
@@ -215,7 +215,7 @@ def AddToFavourite(request, bookid):
     new_favourite.save()
     return render(request, 'product.html', {'addToFav' : True})
 
-
+@download_permission
 def DownloadBook(request, bookid):
     book = Books.objects.get(fileID = bookid)
     file_path = os.path.join(settings.MEDIA_ROOT, book.book_pdf.name)
